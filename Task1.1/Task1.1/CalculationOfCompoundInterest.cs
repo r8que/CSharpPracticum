@@ -6,7 +6,7 @@ public class CalculationOfCompoundInterest
 	{
 
 	}
-    // переменные имеют стартовое значение -1, чтобы в случае ошибки ввода на них остались эти значения
+    // Переменные имеют стартовое значение -1, чтобы в случае ошибки ввода на них остались эти значения
     double initial_deposit = -1;
     int years = -1;
     double interest_years = -1;
