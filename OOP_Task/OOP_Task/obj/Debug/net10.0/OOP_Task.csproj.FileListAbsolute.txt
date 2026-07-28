@@ -1,0 +1,15 @@
+C:\Users\reque\source\repos\CSharpPracticum\OOP_Task\OOP_Task\obj\Debug\net10.0\OOP_Task.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\reque\source\repos\CSharpPracticum\OOP_Task\OOP_Task\obj\Debug\net10.0\OOP_Task.AssemblyInfoInputs.cache
+C:\Users\reque\source\repos\CSharpPracticum\OOP_Task\OOP_Task\obj\Debug\net10.0\OOP_Task.AssemblyInfo.cs
+C:\Users\reque\source\repos\CSharpPracticum\OOP_Task\OOP_Task\obj\Debug\net10.0\OOP_Task.csproj.CoreCompileInputs.cache
+C:\Users\reque\source\repos\CSharpPracticum\OOP_Task\OOP_Task\obj\Debug\net10.0\OOP_Task.sourcelink.json
+C:\Users\reque\source\repos\CSharpPracticum\OOP_Task\OOP_Task\bin\Debug\net10.0\OOP_Task.exe
+C:\Users\reque\source\repos\CSharpPracticum\OOP_Task\OOP_Task\bin\Debug\net10.0\OOP_Task.deps.json
+C:\Users\reque\source\repos\CSharpPracticum\OOP_Task\OOP_Task\bin\Debug\net10.0\OOP_Task.runtimeconfig.json
+C:\Users\reque\source\repos\CSharpPracticum\OOP_Task\OOP_Task\bin\Debug\net10.0\OOP_Task.dll
+C:\Users\reque\source\repos\CSharpPracticum\OOP_Task\OOP_Task\bin\Debug\net10.0\OOP_Task.pdb
+C:\Users\reque\source\repos\CSharpPracticum\OOP_Task\OOP_Task\obj\Debug\net10.0\OOP_Task.dll
+C:\Users\reque\source\repos\CSharpPracticum\OOP_Task\OOP_Task\obj\Debug\net10.0\refint\OOP_Task.dll
+C:\Users\reque\source\repos\CSharpPracticum\OOP_Task\OOP_Task\obj\Debug\net10.0\OOP_Task.pdb
+C:\Users\reque\source\repos\CSharpPracticum\OOP_Task\OOP_Task\obj\Debug\net10.0\OOP_Task.genruntimeconfig.cache
+C:\Users\reque\source\repos\CSharpPracticum\OOP_Task\OOP_Task\obj\Debug\net10.0\ref\OOP_Task.dll
