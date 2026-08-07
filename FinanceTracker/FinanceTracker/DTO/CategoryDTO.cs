@@ -6,6 +6,5 @@
         public string Name { get; set; } = string.Empty;
         public decimal MonthlyBudget { get; set; }
         public bool IsActive { get; set; }
-        // Убираем ссылку на ExpenseItems
     }
 }

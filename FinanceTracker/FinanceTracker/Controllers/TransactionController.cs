@@ -52,7 +52,6 @@ namespace FinanceTracker.Controllers
             return Ok(transactions);
         }
 
-        // GET: api/transactions/{id}
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -90,7 +89,6 @@ namespace FinanceTracker.Controllers
             return Ok(transaction);
         }
 
-        // GET: api/transactions/date/{date}
         [HttpGet("date/{date}")]
         public async Task<IActionResult> GetByDate(DateTime date)
         {
@@ -143,7 +141,6 @@ namespace FinanceTracker.Controllers
             });
         }
 
-        // GET: api/transactions/month/{year}/{month}
         [HttpGet("month/{year}/{month}")]
         public async Task<IActionResult> GetByMonth(int year, int month)
         {
@@ -191,7 +188,6 @@ namespace FinanceTracker.Controllers
             });
         }
 
-        // POST: api/transactions
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] Transaction transaction)
         {
@@ -200,11 +196,11 @@ namespace FinanceTracker.Controllers
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
-                // Проверяем, что сумма положительная
+                // Проверка, что сумма положительная
                 if (transaction.Amount <= 0)
                     return BadRequest(new { error = "Сумма должна быть положительной" });
 
-                // Проверяем, что статья существует
+                // Проверка, что статья существует
                 var expenseItem = await _context.ExpenseItems
                     .Include(e => e.Category)
                     .FirstOrDefaultAsync(e => e.Id == transaction.ExpenseItemId);
@@ -216,7 +212,7 @@ namespace FinanceTracker.Controllers
                 if (!expenseItem.IsActive)
                     return BadRequest(new { error = "Нельзя выбрать неактивную статью расходов" });
 
-                // Проверяем ограничение 1 000 000 руб в день
+                // Проверка ограничения 1 000 000 руб в день
                 var startDate = transaction.Date.Date;
                 var endDate = startDate.AddDays(1);
 
@@ -235,7 +231,6 @@ namespace FinanceTracker.Controllers
                 _context.Transactions.Add(transaction);
                 await _context.SaveChangesAsync();
 
-                // Загружаем связанные данные
                 await _context.Entry(transaction).Reference(t => t.ExpenseItem).LoadAsync();
                 if (transaction.ExpenseItem != null)
                 {
@@ -273,7 +268,6 @@ namespace FinanceTracker.Controllers
             }
         }
 
-        // PUT: api/transactions/{id}
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] Transaction transaction)
         {
@@ -289,7 +283,6 @@ namespace FinanceTracker.Controllers
                 if (existing == null)
                     return NotFound("Транзакция не найдена");
 
-                // Запрещаем редактировать статью, если она стала неактивной
                 var expenseItem = await _context.ExpenseItems.FindAsync(transaction.ExpenseItemId);
                 if (expenseItem == null)
                     return BadRequest(new { error = "Статья расходов не найдена" });
@@ -297,17 +290,14 @@ namespace FinanceTracker.Controllers
                 if (!expenseItem.IsActive)
                     return BadRequest(new { error = "Нельзя использовать неактивную статью расходов" });
 
-                // Проверяем, что сумма положительная
                 if (transaction.Amount <= 0)
                     return BadRequest(new { error = "Сумма должна быть положительной" });
 
-                // Проверяем дневной лимит (если дата или сумма изменились)
                 if (existing.Date.Date != transaction.Date.Date || existing.Amount != transaction.Amount)
                 {
                     var startDate = transaction.Date.Date;
                     var endDate = startDate.AddDays(1);
 
-                    // Сумма всех транзакций за день, исключая текущую
                     var dailyTotal = await _context.Transactions
                         .Where(t => t.Date >= startDate && t.Date < endDate && t.Id != id)
                         .SumAsync(t => t.Amount);
@@ -323,7 +313,6 @@ namespace FinanceTracker.Controllers
 
                 await _context.SaveChangesAsync();
 
-                // Загружаем связанные данные
                 await _context.Entry(existing).Reference(t => t.ExpenseItem).LoadAsync();
                 if (existing.ExpenseItem != null)
                 {
@@ -361,7 +350,6 @@ namespace FinanceTracker.Controllers
             }
         }
 
-        // DELETE: api/transactions/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {

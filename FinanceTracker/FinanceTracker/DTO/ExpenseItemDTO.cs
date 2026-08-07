@@ -6,6 +6,6 @@
         public string Name { get; set; } = string.Empty;
         public bool IsActive { get; set; }
         public int CategoryId { get; set; }
-        public CategoryDto? Category { get; set; }  // Только DTO, без обратных ссылок
+        public CategoryDto? Category { get; set; } 
     }
 }

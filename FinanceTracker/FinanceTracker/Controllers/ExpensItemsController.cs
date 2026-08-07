@@ -137,7 +137,6 @@ namespace FinanceTracker.Api.Controllers
             }
         }
 
-        // PUT и DELETE остаются такими же, но возвращают DTO
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] ExpenseItem expenseItem)
         {
